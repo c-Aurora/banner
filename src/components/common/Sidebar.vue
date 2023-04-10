@@ -13,7 +13,7 @@
 
             <el-menu-item index="0" style="padding:0 12px;">
                 <div class="logo">
-                    <a v-if="isCollapse" href="#"><img style="width:25px;height: 25px;" src="../../assets/logo.png"></a>
+                    <a v-if="isCollapse" href="#"><img style="width:25px;height: 25px;" src="../../../static/img/logo.png"></a>
                     <a v-else href="#">xxx管理系统</a>
                 </div>
             </el-menu-item>
