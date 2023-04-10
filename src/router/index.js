@@ -100,7 +100,7 @@ export const asyncRouterMap = [{
 
 // 实例化vue的时候只挂载基础路由constantRoutes
 const createRouter = () => new Router({
-  // mode: 'history', // require service support
+  // mode: 'history',
   scrollBehavior: () => ({y: 0}),
   routes: constantRouterMap
 })

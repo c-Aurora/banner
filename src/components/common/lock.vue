@@ -109,7 +109,7 @@ h3{
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../../../static/img/login-bg.jpg");
+    background-image: url("../../assets/login-bg.jpg");
     background-size: cover;
 }
 
