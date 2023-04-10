@@ -117,3 +117,15 @@ npm run build --report
      操作（3）  切换标签，动态菜单跟着切换选中
 
 4.  当路由守卫判定不为初次登录时，则被认为是在刷新，则从sessionStorage缓存中找到数据赋值给store，重新渲染路由，使页面不为空白
+
+
+<!-- 1、执行npm run build ,先推送到master分支
+
+2、使用git subtree push --prefix dist origin gh-pages将dist目录推送到远程的gh-pages分支，若远程没有gh-pagse分支则会新建gh-pagse分支然后再推送。
+
+备注：此处只能是gh-pages分支，才能使用GitHub pages功能
+
+
+3、登录远程GitHub仓库，通过setting -> github pages -> source 将gh-pages设置为GitHub pages 的source
+
+4、每次执行npm run build 后再次执行步骤2 -->
