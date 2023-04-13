@@ -54,7 +54,7 @@ export const asyncRouterMap = [{
     "meta": {
         "title": "data相关",
         "icon": "el-icon-s-order",
-        "roles": ["admin","editor"]  //角色权限配置
+        "roles": ["admin"]  //角色权限配置
     },
     "children": [{
         "path": "table",
@@ -63,7 +63,7 @@ export const asyncRouterMap = [{
         "meta": {
             "title": "基础表格",
             "icon": "el-icon-mic",
-            "roles": ["admin","editor"]
+            "roles": ["admin"]
         }
     },
     {
@@ -73,7 +73,7 @@ export const asyncRouterMap = [{
         "meta": {
             "title": "描述列表",
             "icon": "el-icon-mic",
-            "roles": ["admin","editor"]
+            "roles": ["admin"]
         }
     }]
 },

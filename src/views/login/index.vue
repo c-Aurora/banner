@@ -18,7 +18,7 @@
                     <Vcode :show="isShow" @success="success('ruleForm')" @close="close" />
                     <el-button type="primary" :loading="loading" @click="submitForm('ruleForm')">登录</el-button>
                 </div>
-                <p class="login-tips">Tips : 用户名和密码随便填。</p>
+                <p class="login-tips">权限 : admin-123123 / editor-123123。</p>
             </el-form>
         </div>
     </div>

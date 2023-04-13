@@ -28,11 +28,19 @@ export function login(username, password) {
   //   })
   }
   //获取token信息
-  export function getInfo(token) {
+  
+  //假的rolesName，到时候删除，用下面注释的，假的，后台数据模拟，等真的后台的时候删掉，用下面注释的
+//   export function getInfo(token) {
+//     return http({
+//       url: '/info',
+//       method: 'get',
+//       params: { token }
+//     })
+  export function getInfo(token,rolesName) {
     return http({
       url: '/info',
       method: 'get',
-      params: { token }
+      params: { token,rolesName }
     })
   
     //或者

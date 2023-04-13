@@ -22,8 +22,9 @@ function hasPermission (roles, route) {
     // 如果当前路由有roles 字段则需要判断用户访问权限
     if (route.meta && route.meta.roles) {
         // 只要meta.roles中存在与用户角色列表中相同的值，则说明具有访问权限
-        return roles.some(role => route.meta.roles.includes(role) >= 0)
-        //另一种写法 return roles.some(role => route.meta.roles.indexOf(role) >= 0)
+        return roles.some(role => route.meta.roles.indexOf(role) >= 0)
+        // 另一种写法,可能有点问题
+        // return roles.some(role => route.meta.roles.includes(role) >= 0)
     } else {
         // 不存在meta或者是不存在meta.roles，则说明是通用模块，直接放行
         return true
@@ -45,25 +46,21 @@ function filterAsyncRouter (asyncRouterMap, roles) {
             //如果component存在
             if (route.component) {
                 if (route.component === 'Layout') { //Layout组件特殊处理
-                    //console.log('1')
                     route.component = Layout
                 } else {
                     //后端传来的component是一个字符串
                     //实际前端需要的 component是 component: () => import('@/views/content/classify'),
                     route.component =loadView(route.component) 
-                    //console.log(route.component,"打印出来二级菜单的component是空的，但是能用")
                 }
                 
             }
             if (route.children && route.children.length) {
                 
                 route.children = filterAsyncRouter(route.children, roles)
-                //console.log(route.children,'3')
             }
             return true
         }
     })
-    // console.log(accessedRouters,'1')
     return accessedRouters
 
 
@@ -124,12 +121,12 @@ const permission = {
             // 当前登录账号的角色数组
             return new Promise(resolve => {
                 const { roles } = data
+                console.log(roles,12345)
                 let accessedRouters
                 //根据用户角色roles和异步路由进行筛选(根据用户角色做过滤处理)
                 /* asyncRouterMap 这里直接写在页面中了，实际应用中我们需要进行ajax请求获取*/
                 // console.log(asyncRouterMap,12123)
                 accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
-
                 // 最后添加，如果后端没有404重定向，这里就要加上，加到最后面，不然都会重定向到404
                 // const unfound = { path: '*', redirect: '/404', hidden: true }
                 // accessedRoutes.push(unfound)

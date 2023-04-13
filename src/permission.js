@@ -52,9 +52,11 @@ router.beforeEach(async (to, from, next) => {
                     // 注意: roles 角色必须是对象数组! 例如: ['admin'] 或 ,['developer','editor']
                     // 1. 获取roles,即用户信息
                     const { data } = await store.dispatch('GetInfo')
-                  
                     // 2. 根据用户的角色，动态生成路由，即获取通过权限验证的路由，这里的accessRoutes就是筛选之后的路由
-                    const accessRoutes = await store.dispatch('GenerateRoutes', data)
+
+                    //假的，后台数据模拟，等真的后台的时候删掉这句，用下面注释的
+                    const accessRoutes = await store.dispatch('GenerateRoutes', data.anxun)
+                    // const accessRoutes = await store.dispatch('GenerateRoutes', data)
 
                     // 3. 更新加载路由
                     router.options.routes = store.getters.permission_routers //第三步

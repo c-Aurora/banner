@@ -98,6 +98,8 @@
                     }).then( async () => {
                         await this.$store.dispatch('LogOut')
                         this.$router.push({ path: '/login' }, () => { })
+                    //vue - router退出登录清空路由,router没有提供清空数据的方法。我们可以这样写
+                        location.reload();
                     });
                     
                 }

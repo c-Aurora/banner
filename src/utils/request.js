@@ -6,7 +6,7 @@ import { getToken } from '@/utils/auth'
 
 // 创建axios实例
 const http = axios.create({
-    // baseURL: process.env.BASE_API, // api的base_url
+    // baseURL: process.env.BASE_API, // api的base_url,也可以配置在config里面，dev.env.js和pro.env.js
     baseURL: 'https://mock.mengxuegu.com/mock/642f916f32affa39a121ce38/routing',//east Mock接口
   timeout: 15000 // 请求超时时间
 })
