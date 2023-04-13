@@ -65,19 +65,20 @@
                 isShow: false, //人机验证是否显示
                 loading: false,
                 passwordType: "password",
-                redirect: undefined,
+                // redirect: undefined,
             };
         },
         created(){
                 
         },
         watch: {
-            $route: {
-                handler: function (route) {
-                    this.redirect = route.query && route.query.redirect;
-                },
-                immediate: true,
-            },
+            // $route: {
+            //     handler: function (route) {
+            //         console.log(route,121)
+            //         this.redirect = route.query && route.query.redirect;
+            //     },
+            //     immediate: true,
+            // },
         },
         methods: {
             submitForm(formName){

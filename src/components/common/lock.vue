@@ -57,7 +57,8 @@ export default {
             }).then(() => {
                 this.$store.dispatch('LogOut').then(() => {
                     this.$router.push({ path: '/login' })
-                    //vue - router退出登录清空路由,router没有提供清空数据的方法。我们可以这样写
+                    this.$store.commit('CLEAR_LOCK')
+                    //vue - router退出登录清空路由,router没有提供清空数据的方法。我们可以这样写,
                     location.reload();
                 })
             }).catch(() => {
