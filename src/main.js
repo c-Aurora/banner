@@ -12,6 +12,13 @@ import { getToken } from './utils/auth' // get token from cookie
 
 import './permission'//全局路由守卫配置, 这里进行路由后台获取的模拟
 
+
+// 添加 v-btnPermission 权限按钮自定义指令
+import btnPermission from '@/directive/btnPermission/index'
+// const { btnPermission } = Directives
+Vue.use(btnPermission)
+
+
 Vue.use(ElementUI, {size: 'small'});
 
 // 挂载到vue的全局(原型上),在每个组件都可以使用 ,prototype是固定的,$axios是自定义的

@@ -6,6 +6,8 @@ const getters = {
     token: state => state.user.token,
     avatar: state => state.user.avatar,
     name: state => state.user.name,
+    //用户权限列表按钮
+    btnPermissionList: state => state.user.btnPermissionList,
     // introduction: state => state.user.introduction,
     // status: state => state.user.status,
     roles: state => state.user.roles,

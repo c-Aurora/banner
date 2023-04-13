@@ -41,6 +41,9 @@
                     <p>一个cli2 + element + vuex + 权限 + 动态路由 的项目</p>
                     <p>admin超级管理员，可以看到首页-data相关-拖拽列表所有页面</p>
                     <p>editor普通管理员，只可以看到首页-拖拽列表页面</p>
+                    <p>新增自定义指令-权限按钮:</p>
+                    <p>admin可以看到全部按钮操作</p>
+                    <p>editor只可以添加，没有修改和删除</p>
                 </el-card>
             </el-col>
             <el-col :span="8">
@@ -56,7 +59,10 @@
                     <div class="user-info-list">上次登录地点：<span>xx</span></div>
                 </el-card>
                 <el-card shadow="hover" style="height:252px;">
-                  
+                    <p>权限按钮测试</p>
+                    <el-button type="primary" v-btnPermission="'add'">添加</el-button>
+                    <el-button type="info" v-btnPermission="'edit'">修改</el-button>
+                    <el-button type="danger" v-btnPermission="'del'">删除</el-button>
                 </el-card>
             </el-col>
         </el-row>

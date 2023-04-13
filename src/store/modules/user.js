@@ -9,6 +9,8 @@ const user = { //user模块，token,登录，登出
         name: '',
         avatar: '',
         roles: [],
+        //按钮权限
+        btnPermissionList: [],
         //锁屏
         isLock: getStore({name: 'isLock'}) || false,
         lockPasswd: getStore({name: 'lockPasswd'}) || '',
@@ -27,6 +29,10 @@ const user = { //user模块，token,登录，登出
         },
         SET_ROLES: (state, roles) => {
             state.roles = roles
+        },
+        //设置按钮权限
+        SET_BTN_PERMISSION_LIST: (state, btnPermissionList) => {
+            state.btnPermissionList = btnPermissionList
         },
         //设置锁屏密码
         SET_LOCK_PASSWD: (state, lockPasswd) => {
@@ -98,6 +104,8 @@ const user = { //user模块，token,登录，登出
                     }
                     commit('SET_NAME', data.anxun.username)
                     commit('SET_AVATAR', data.anxun.avatar)
+                    //设置用户按钮权限-一开始就把用户的所有按钮权限返回来
+                    commit('SET_BTN_PERMISSION_LIST', data.anxun.hasbtn)
                     resolve(response)
                 }).catch(error => {
                     reject(error)
@@ -112,12 +120,14 @@ const user = { //user模块，token,登录，登出
         //             //解构写法
         //             const { data } = response
         //             if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
-        //                 commit('SET_ROLES', data.roles)                
+        //                 commit('SET_ROLES', data.roles)
         //             } else {
         //                 reject('getInfo: roles must be a non-null array !')
         //             }
         //             commit('SET_NAME', data.username)
         //             commit('SET_AVATAR', data.avatar)
+        //             //设置用户按钮权限-一开始就把用户的所有按钮权限返回来
+        //             commit('SET_BTN_PERMISSION_LIST', data.hasbtn)
         //             resolve(response)
         //         }).catch(error => {
         //             reject(error)
